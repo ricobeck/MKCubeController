@@ -110,19 +110,19 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
             if animated {
                 
                 let animation: CATransition = CATransition()
-                animation.type = kCATransitionFade
+                animation.type = CATransitionType.fade
                 scrollView.layer.add(animation, forKey: nil)
             }
             
             controller.view!.removeFromSuperview()
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
             
             if let newController = dataSource?.cubeController(cubeController: self, viewControllerAtIndex: index) {
                 
                 controllers[index] = newController
                 newController.view.layer.isDoubleSided = false
                 
-                addChildViewController(newController)
+                addChild(newController)
                 scrollView.addSubview(newController.view!)
                 
                 newController.view.layer.transform = transform
@@ -175,7 +175,7 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
         
             controller.viewWillDisappear(false)
             controller.view!.removeFromSuperview()
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
             controller.viewDidDisappear(false)
         }
         
@@ -219,7 +219,7 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
                 
                 controller.view.autoresizingMask = []
                 controller.view.layer.isDoubleSided = false
-                addChildViewController(controller)
+                addChild(controller)
                 scrollView.addSubview(controller.view)
             }
             
@@ -292,7 +292,7 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
             if !visibleIndices.contains(index) {
                 
                 controller.view!.removeFromSuperview()
-                controller.removeFromParentViewController()
+                controller.removeFromParent()
                 controllers.removeValue(forKey: index)
             }
         }
