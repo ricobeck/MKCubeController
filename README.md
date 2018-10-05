@@ -1,6 +1,6 @@
 # MKCubeController
 
-MKCubeController is used to create a rotating 3D cube navigation in Swift 2.1. (translated from @nicklockwood CubeController)
+MKCubeController is used to create a rotating 3D cube navigation in Swift 4.2. (translated from @nicklockwood CubeController)
 here the link https://github.com/nicklockwood/CubeController
 Pretty much the same logic.
 
@@ -20,28 +20,21 @@ controller.wrapEnabled = true
 And implement MKCubeViewControllerDataSource
 ```swift
 func numberOfViewControllersInCubeController(cubeController: MKCubeViewController) -> Int {
-	
 	return 3
 }
 
 func cubeController(cubeController: MKCubeViewController, viewControllerAtIndex index: Int) -> UIViewController {
 	
 	switch index % 3 {
-	
 	case 0:
 		return ViewController(nibName: "RedViewController", bundle: nil)
-		
 	case 1:
 		return ViewController(nibName: "GreenViewController", bundle: nil)
-		
 	case 2:
 		return ViewController(nibName: "BlueViewController", bundle: nil)
-		
 	default:
 		break
-
 	}
-	
 	return ViewController()
 }
 ```
