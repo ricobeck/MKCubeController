@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MKCubeViewControllerDataS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let controller = MKCubeViewController()
+        controller.focalLength = 1000
         controller.dataSource = self
         controller.wrapEnabled = true
         

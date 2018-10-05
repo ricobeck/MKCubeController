@@ -31,6 +31,8 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
     public weak var dataSource: MKCubeViewControllerDataSource?
     public weak var delegate: MKCubeViewControllerDelegate?
     
+    public var focalLength: CGFloat = 500
+    
     private var controllers = [Int: UIViewController]()
     private var scrollOffset: CGFloat = 0
     private var previousOffset: CGFloat = 0
@@ -238,7 +240,7 @@ public class MKCubeViewController: UIViewController, UIScrollViewDelegate {
             
             if angle != 0.0 {
                 
-                transform.m34 = -1.0 / 500
+                transform.m34 = 1.0 / -focalLength
                 transform = CATransform3DTranslate(transform, 0, 0, -view.bounds.size.width / 2.0)
                 transform = CATransform3DRotate(transform, -CGFloat(angle), 0, 1, 0)
                 transform = CATransform3DTranslate(transform, 0, 0, view.bounds.size.width / 2.0)
